@@ -1,0 +1,24 @@
+{
+  "name": "nodeCRUD",
+  "version": "1.0.0",
+  "description": "Simple CRUD operation using nodeJS with mongoDB.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KabeerRifaye/nodeCRUD.git"
+  },
+  "author": "Kabeer Rifaye <citizen.kabeer@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KabeerRifaye/nodeCRUD/issues"
+  },
+  "homepage": "https://github.com/KabeerRifaye/nodeCRUD",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-util": "^3.0.4",
+    "gulp-webserver": "^0.9.0"
+  }
+}
