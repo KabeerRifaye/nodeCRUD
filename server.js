@@ -1,7 +1,7 @@
 /* Module Dependencies */
 
 var express = require('express'),
-	path = require('path')
+	path = require('path');
 
 /* Express Init */
 

@@ -1,14 +1,30 @@
-<html>
+<html ng-app="nodecrud">
 <head>
 	<title>nodeCRUD</title>
+
+	<!-- Mobile Responsive -->
+	<meta name="viewport" content="width=device-width, user-scalable=no" >
+
+	<!-- Stylesheet -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<!-- Javascript -->
+	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+
+	<!-- Angular scripts -->
+	<script src="js/angular/angular.min.js"></script>
+	<script src="js/angular/angular-route.min.js"></script>
+	<script src="js/angular/angular-animate.min.js"></script>
+
 </head>
 <body>
+	<!-- Navigation bar -->
+	<div ng-include="'public/views/nav.html'"></div>
+
 	<div class="container">
-		<div class="jumbotron">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quos.
-		</div>
+		<h1>Simple CRUD(Create Read Update Delete)</h1>
 	</div>
 </body>
 </html>
