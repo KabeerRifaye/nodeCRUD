@@ -24,15 +24,15 @@ gulp.task('html', function(){
 gulp.task('watch', function(){
 	gulp.watch(['public/js/**/*','*.js'], ['js']);
 	gulp.watch('public/css/**/*', ['css']);
-	gulp.watch('public/views/*.html', ['html']);
+	gulp.watch(['public/*.html','public/views/*.html'], ['html']);
 });
 
-gulp.task('gulpwebserver', function(){
-	gulp.src('')
-		.pipe(gulpwebserver({
-			livereload: true,
-			open: true
-		}));
-});
+// gulp.task('gulpwebserver', function(){
+// 	gulp.src('')
+// 		.pipe(gulpwebserver({
+// 			livereload: true,
+// 			open: true
+// 		}));
+// });
 
-gulp.task('default',['watch','start','html','css','js','gulpwebserver']);
+gulp.task('default',['watch','start','html','css','js']);
