@@ -25,7 +25,9 @@
 	<div class="form-group">
 		<label for="age" class="col-sm-2 control-label">Age</label>
 		<div class="col-sm-10">
-			<input type="text" name="age" class="form-control" id="age" placeholder="23" ng-required="true" ng-model="user.age">
+			<input type="number" name="age" class="form-control" id="age" placeholder="23" ng-model="user.age" min="0" max="99" ng-required="true">
+			<p class="adduser_validation" ng-show="regusers.age.$error.number">Not a valid number!.</p>
+			<!-- <p ng-show="regusers.age.$error.required">Required !</p> -->
 			<p class="adduser_validation" ng-show="regusers.age.$invalid && regusers.age.$touched">Age is required</p>
 		</div>
 	</div>
