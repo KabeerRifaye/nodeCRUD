@@ -7,10 +7,10 @@ nodecrud.controller('addController', function($scope, $http, $location){
 	
 	$scope.addnew = function(){
 		var userinfo = {
-			fname: $scope.regusers.fname,
-			lname: $scope.regusers.lname,
-			age: $scope.regusers.age,
-			email: $scope.regusers.email
+			firstname: $scope.user.firstname,
+			lastname: $scope.user.lastname,
+			email: $scope.user.email,
+			age: $scope.user.age
 		};
 		console.log(userinfo);
 		$http.post('/api/users', userinfo).success(function(response) {
