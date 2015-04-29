@@ -1,14 +1,26 @@
-/* Module Dependencies */
-
+/**
+*
+* Module Dependencies
+*
+**/
 var express = require('express'),
-	path = require('path');
+	path = require('path'),
+	bodyParser = require('body-parser');
 
-/* Express Init */
-
+/**
+*
+* Express init
+*
+**/
 var app = express();
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
-/* View Engine Setup */
-
+/**
+*
+* View Engine setup
+*
+**/
 app.set("views", path.join(__dirname, "/public/"));
 app.set("view_engine", "html").engine("html",function(path,options,fn){
 	if("function" == typeof options){
@@ -20,7 +32,38 @@ app.set("view_engine", "html").engine("html",function(path,options,fn){
 app.use(express.static(path.join(__dirname, "/public")));
 
 
-/* Server Request */
+/**
+*
+* Mongoose Connect
+*
+**/
+
+require('./models/init');
+require('./models/users');
+var mongoose = require('mongoose'),
+	users = mongoose.model('User');
+
+
+app.post('/api/users',function(req, res){
+	new users(req.body).save(function(err,docs){
+		console.log("Request Body:" +req.body);
+		console.log(err || docs);
+		res.sendStatus(err ? 400 : 200);
+	});
+})
+/**
+*
+* Routes
+*
+**/
+var Route = require('./routes/routes');
+
+/**
+*
+* Create Server
+*
+**/
+
 app.listen(process.env.PORT || 3000 , function(){
 	console.log("Express listening on port " + (process.env.PORT || 3000));
 });

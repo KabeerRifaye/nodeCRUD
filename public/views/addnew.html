@@ -1,0 +1,35 @@
+<h4>{{title}}</h4>
+
+<form action="" name="regusers" class="form-horizontal" novalidate ng-submit="addnew()" >
+	<div class="form-group">
+		<label for="firstname" class="col-sm-2 control-label">First name</label>
+		<div class="col-sm-10">
+			<input type="text" name="firstname" class="form-control" id="firstname" placeholder="First name" ng-required="true" ng-model="regusers.fname" autofocus>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="lastname" class="col-sm-2 control-label">Last name</label>
+		<div class="col-sm-10">
+			<input type="text" name="lastname" class="form-control" id="lastname" placeholder="Last name" ng-required="true" ng-model="regusers.lname">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="email" class="col-sm-2 control-label">Email</label>
+		<div class="col-sm-10">
+			<input type="email" name="emailid" class="form-control" id="email" placeholder="xxx@example.com" ng-required="true" ng-model="regusers.email">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="age" class="col-sm-2 control-label">Age</label>
+		<div class="col-sm-10">
+			<input type="text" name="agee" class="form-control" id="age" placeholder="23" ng-required="true" ng-model="regusers.age">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<a href=""></a>
+			<button type="submit" class="btn btn-default">Add user</button>
+			<a href="#/index" class="btn btn-inverse">Back</a>
+		</div>
+	</div>
+</form>
