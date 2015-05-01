@@ -50,7 +50,15 @@ app.post('/api/users',function(req, res){
 		console.log(err || docs);
 		res.sendStatus(err ? 400 : 200);
 	});
-})
+});
+
+app.get('/api/users/viewall',function(req, res){
+	users.find(function(err,users){
+		console.log(err || users);
+		res.json(users);
+		// res.sendStatus(err ? 400 : 200);
+	});
+});
 /**
 *
 * Routes

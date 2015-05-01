@@ -6,7 +6,8 @@ var crudController = angular.module('crudController',[]);
 nodecrud.config(['$routeProvider', function($routeProvider){
 	$routeProvider.
 		when('/index',{
-			templateUrl: 'views/index.html'
+			templateUrl: 'views/index.html',
+			controller: 'addController'
 		}).
 		when('/edit',{
 			templateUrl: 'views/edit.html',
