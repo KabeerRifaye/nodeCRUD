@@ -11,7 +11,7 @@
 				<a ng-href="#/addnew" class="btn btn-success">Add new</a>
 			</div>
 			<div class="col-sm-3 col-sm-offset-6">
-				<input type="search" id="search" name="search" class="form-control" placeholder="Search here...">
+				<input type="search" id="search" name="search" class="form-control" placeholder="Search here..." ng-model="searchText">
 			</div>
 		</div>
 	</div>
@@ -29,7 +29,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="user in users">
+				<tr ng-repeat="user in users | filter:searchText">
 					<td>{{user._id}}</td>
 					<td>{{user.fname}}</td>
 					<td>{{user.lname}}</td>
