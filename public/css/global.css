@@ -2,3 +2,16 @@
 	background-color: #D13655;
 	font-weight: bolder;
 }
+
+.color-view,.color-view:hover {
+	color:#9CCC65;
+}
+
+.color-edit,.color-edit:hover{
+	color:#ECB75D;
+}
+
+.color-delete,.color-delete:hover{
+	color:#F4511E;
+	cursor: pointer;
+}

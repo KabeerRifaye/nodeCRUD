@@ -43,22 +43,34 @@ require('./models/users');
 var mongoose = require('mongoose'),
 	users = mongoose.model('User');
 
+/* Create new user */
 
 app.post('/api/users',function(req, res){
 	new users(req.body).save(function(err,docs){
-		console.log("Request Body:" +req.body);
+		// console.log("Request Body:" +req.body);
 		console.log(err || docs);
 		res.sendStatus(err ? 400 : 200);
 	});
 });
 
+/* List all users from database */
+
 app.get('/api/users/viewall',function(req, res){
 	users.find(function(err,users){
-		console.log(err || users);
+		console.log(err || 'user listed successfully');
 		res.json(users);
-		// res.sendStatus(err ? 400 : 200);
 	});
 });
+
+/* Delete user */
+
+app.delete('/api/users/:id', function(req, res){
+	users.findByIdAndRemove(req.params.id, function(err, users){
+		console.log(err || 'Deleted user: ' ,users);
+		res.json(users);
+	});
+});
+
 /**
 *
 * Routes
