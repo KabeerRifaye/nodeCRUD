@@ -1,1 +1,42 @@
-<h6>{{text}}</h6>
+<div class="container" ng-controller="editController" ng-init="edit()">
+	<strong><div class="panel-heading">Edit User</div></strong>
+	<form name="regusers" class="form-horizontal" novalidate ng-submit="edituser()" >
+		<div class="form-group">
+			<label for="firstname" class="col-sm-2 control-label">First name</label>
+			<div class="col-sm-10">
+				<input type="text" name="firstname" class="form-control" id="firstname" placeholder="First name" ng-model="user.firstname" ng-required="true" autofocus>
+				<p class="adduser_validation" ng-show="regusers.firstname.$invalid && regusers.firstname.$touched">Firstname is required</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="lastname" class="col-sm-2 control-label">Last name</label>
+			<div class="col-sm-10">
+				<input type="text" name="lastname" class="form-control" id="lastname" placeholder="Last name" ng-required="true" ng-model="user.lastname">
+				<p class="adduser_validation" ng-show="regusers.lastname.$invalid && regusers.lastname.$touched">Lastname is Required</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="email" class="col-sm-2 control-label">Email</label>
+			<div class="col-sm-10">
+				<input type="email" name="email" class="form-control" id="email" placeholder="xxx@example.com" ng-required="true" ng-model="user.email">
+				<p class="adduser_validation" ng-show="regusers.email.$invalid && regusers.email.$touched">Email is required</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="age" class="col-sm-2 control-label">Age</label>
+			<div class="col-sm-10">
+				<input type="number" name="age" class="form-control" id="age" placeholder="23" ng-model="user.age" min="0" max="99" ng-required="true">
+				<p class="adduser_validation" ng-show="regusers.age.$error.number">Not a valid number!.</p>
+				<!-- <p ng-show="regusers.age.$error.required">Required !</p> -->
+				<p class="adduser_validation" ng-show="regusers.age.$invalid && regusers.age.$touched">Age is required</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<a href=""></a>
+				<button type="submit" class="btn btn-default" ng-disabled="regusers.$invalid">Submit</button>
+				<a href="#/index" class="btn btn-inverse">Back</a>
+			</div>
+		</div>
+	</form>
+</div>

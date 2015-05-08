@@ -9,7 +9,7 @@ nodecrud.config(['$routeProvider', function($routeProvider){
 			templateUrl: 'views/index.html',
 			controller: 'addController'
 		}).
-		when('/edit',{
+		when('/edit/:id',{
 			templateUrl: 'views/edit.html',
 			controller: 'editController'
 		}).

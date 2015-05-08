@@ -12,7 +12,7 @@ nodecrud.controller('addController', function($scope, $http, $location){
 			age: $scope.user.age
 		};
 		console.log(userinfo);
-		$http.post('/api/users', userinfo).success(function(response) {
+		$http.post('/api/user/add', userinfo).success(function(response) {
                 $location.path('#/index');
             }).error(function(response) {
                 console.log(response.message);
@@ -21,7 +21,7 @@ nodecrud.controller('addController', function($scope, $http, $location){
 	};	
 
 	$scope.find = function(){
-		$http.get('/api/users/viewall').success(function(users){
+		$http.get('/api/users').success(function(users){
 			$scope.users = users;
 			console.log(users);
 		}).error(function(response){

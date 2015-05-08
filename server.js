@@ -43,9 +43,15 @@ require('./models/users');
 var mongoose = require('mongoose'),
 	users = mongoose.model('User');
 
+/**
+*
+* Routes Configutation
+*
+**/
+
 /* Create new user */
 
-app.post('/api/users',function(req, res){
+app.post('/api/user/add',function(req, res){
 	new users(req.body).save(function(err,docs){
 		// console.log("Request Body:" +req.body);
 		console.log(err || docs);
@@ -55,7 +61,7 @@ app.post('/api/users',function(req, res){
 
 /* List all users from database */
 
-app.get('/api/users/viewall',function(req, res){
+app.get('/api/users',function(req, res){
 	users.find(function(err,users){
 		console.log(err || 'user listed successfully');
 		res.json(users);
@@ -71,16 +77,18 @@ app.delete('/api/users/:id', function(req, res){
 	});
 });
 
-/**
-*
-* Routes
-*
-**/
-var Route = require('./routes/routes');
+/* Edit user */
+
+app.get('/api/user/:id', function(req, res){
+	users.findOne(req.params.id, function(err, users){
+		console.log(err || 'Edit user page loaded successfully');
+		res.json(users);
+	});
+});
 
 /**
 *
-* Create Server
+* Create server
 *
 **/
 

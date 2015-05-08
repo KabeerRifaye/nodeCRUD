@@ -31,13 +31,13 @@
 			<tbody>
 				<tr ng-repeat="user in users | filter:searchText">
 					<td>{{user._id}}</td>
-					<td>{{user.fname}}</td>
-					<td>{{user.lname}}</td>
+					<td>{{user.firstname}}</td>
+					<td>{{user.lastname}}</td>
 					<td>{{user.email}}</td>
 					<td>{{user.age}}</td>
 					<td>
 						<a class="color-view" ng-href="#/view"><i class="fa fa-eye fa-lg"></i></a>
-						<a class="color-edit" ng-href="#/edit"><i class="fa fa-pencil fa-lg"></i></a>
+						<a class="color-edit" ng-href="#/edit/{{user._id}}"><i class="fa fa-pencil fa-lg"></i></a>
 						<a class="color-delete" ng-click="Delete(user._id)"><i class="fa fa-trash-o fa-lg"></i></a>
 					</td>
 				</tr>
