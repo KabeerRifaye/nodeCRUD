@@ -41,19 +41,13 @@ app.use(express.static(path.join(__dirname, "/public")));
 require('./models/init');
 require('./models/users');
 var mongoose = require('mongoose'),
-	users = mongoose.model('User');
+	User = mongoose.model('User');
 
-/**
-*
-* Routes Configutation
-*
-**/
 
 /* Create new user */
 
-app.post('/api/user/add',function(req, res){
-	new users(req.body).save(function(err,docs){
-		// console.log("Request Body:" +req.body);
+app.post('/api/user',function(req, res){
+	new User(req.body).save(function(err,docs){
 		console.log(err || docs);
 		res.sendStatus(err ? 400 : 200);
 	});
@@ -62,17 +56,8 @@ app.post('/api/user/add',function(req, res){
 /* List all users from database */
 
 app.get('/api/users',function(req, res){
-	users.find(function(err,users){
+	User.find(function(err,users){
 		console.log(err || 'user listed successfully');
-		res.json(users);
-	});
-});
-
-/* Delete user */
-
-app.delete('/api/users/:id', function(req, res){
-	users.findByIdAndRemove(req.params.id, function(err, users){
-		console.log(err || 'Deleted user: ' ,users);
 		res.json(users);
 	});
 });
@@ -80,9 +65,32 @@ app.delete('/api/users/:id', function(req, res){
 /* Edit user */
 
 app.get('/api/user/:id', function(req, res){
-	users.findOne(req.params.id, function(err, users){
+	User.findOne({_id: req.params.id}, function(err, user){
 		console.log(err || 'Edit user page loaded successfully');
-		res.json(users);
+		res.json(user);
+	});
+});
+
+/* Delete user */
+
+app.delete('/api/user/:id', function(req, res){
+	User.remove({_id: req.params.id}, function(err){
+		console.log(err || 'Deleted user');
+		res.sendStatus(200);
+	});
+});
+
+/* Update user */
+
+app.put('/api/user/:id', function(req, res){
+	User.update({_id: req.params.id},{
+		firstname: req.body.firstname,
+		lastname: req.body.lastname,
+		email: req.body.email,
+		age: req.body.age
+	}, function(err){
+		console.log(err || 'User updated');
+		res.sendStatus(200);
 	});
 });
 

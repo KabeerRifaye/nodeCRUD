@@ -4,6 +4,8 @@ nodecrud.controller('addController', function($scope, $http, $location){
 	
 	$scope.title = "Add new user";
 
+	/* Add new user */
+	
 	$scope.addnew = function(){
 		var userinfo = {
 			firstname: $scope.user.firstname,
@@ -12,30 +14,31 @@ nodecrud.controller('addController', function($scope, $http, $location){
 			age: $scope.user.age
 		};
 		console.log(userinfo);
-		$http.post('/api/user/add', userinfo).success(function(response) {
+		$http.post('/api/user', userinfo).success(function(response) {
                 $location.path('#/index');
             }).error(function(response) {
                 console.log(response.message);
             });
-		// console.log(userinfo);
 	};	
 
+	/* List all the registered users */
+	
 	$scope.find = function(){
 		$http.get('/api/users').success(function(users){
 			$scope.users = users;
-			console.log(users);
 		}).error(function(response){
 			console.log(response.message)
 		});
 	};
 
+	/* Delete the user by using _id */
+	
 	$scope.Delete = function(id){
-		$http.delete('/api/users/'+id).success(function(response){
+		$http.delete('/api/user/'+id).success(function(response){
 			console.log('User deleted');
-			$location.path('#/index');
+			$scope.find();
 		}).error(function(err){
 			console.log("Error in user deletion");
 		});
 	};
-
 });

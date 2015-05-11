@@ -5,7 +5,7 @@ var crudController = angular.module('crudController',[]);
 // Route Configuration
 nodecrud.config(['$routeProvider', function($routeProvider){
 	$routeProvider.
-		when('/index',{
+		when('/',{
 			templateUrl: 'views/index.html',
 			controller: 'addController'
 		}).
@@ -22,6 +22,6 @@ nodecrud.config(['$routeProvider', function($routeProvider){
 			controller: 'addController'
 		}).
 		otherwise({
-			redirectTo: '/index'
+			redirectTo: '/'
 		});
 }]);
