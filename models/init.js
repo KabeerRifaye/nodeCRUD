@@ -13,6 +13,5 @@ var URI = MONGOLAB_URI || MONGOHQ_URL || 'mongodb://localhost/'+db;
 /* Connect Mongoose */
 
 mongoose.connect(URI, function(e){
-	console.log(e ? "Error connecting with mongodb : " +e : "Connected to database : " +db);
+	console.log(e ? "Error connecting with mongodb : " +e : "Connected to database : " +URI);
 });
-
